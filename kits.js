@@ -14,3 +14,7 @@ let s = time.getSeconds();
  s = s > 10?s:'0'+s;
 return y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s; 
 }
+
+;(function (){
+    
+})();
