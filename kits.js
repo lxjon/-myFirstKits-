@@ -16,3 +16,20 @@
     return y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s; 
     }
 })();
+
+;(function(){
+    function jQuery(Selector){
+      return new Init(Selector);
+    }
+    function Init(Selector){
+        let dom = document.querySelectorAll(Selector);
+        for(let i = 0; i <= dom.length; i++){
+            //把dom伪数组，复制为jq的伪数组；
+            this[i] = dom[i];
+        }
+        this.length = dom.length;
+    }
+    window.$ = jQuery;
+})();
+
+
