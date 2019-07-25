@@ -1,5 +1,5 @@
-;(function (){
-    let kits = {}
+var kits = {};
+
     kits.getTime = function (){
     let time = new Date();
     let y = time.getFullYear();
@@ -14,11 +14,10 @@
      m = m > 10?m:'0'+m;
      s = s > 10?s:'0'+s;
     return y + '-' + M + '-' + d + ' ' + h + ':' + m + ':' + s; 
-    }
-})();
+    };
 
-;(function(){
-    function jQuery(Selector){
+
+    kits.jQuery =  function (Selector){
       return new Init(Selector);
     }
     function Init(Selector){
@@ -30,6 +29,18 @@
         this.length = dom.length;
     }
     window.$ = jQuery;
-})();
-
+   
+  //把从浏览器地址栏问号后面获取的数据转换为对象 
+   kits.getUrlParams = function (){
+       let arr = location.search.substr(1).split('&'); 
+       let params = {};
+       arr.forEach(e => {
+         let team = e.split('=');
+        //  let key = team[0];
+        //  let val = team[1];
+        //  params[key] = val;
+        params[team[0]] = team[1];
+       });
+       return params;
+   }
 
