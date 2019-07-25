@@ -17,7 +17,7 @@ var kits = {};
     };
 
 
-    kits.jQuery =  function (Selector){
+    kits.jQuery  = function(){ function jQuery(Selector){
       return new Init(Selector);
     }
     function Init(Selector){
@@ -29,18 +29,21 @@ var kits = {};
         this.length = dom.length;
     }
     window.$ = jQuery;
-   
+  }
+
+
+
   //把从浏览器地址栏问号后面获取的数据转换为对象 
    kits.getUrlParams = function (){
        let arr = location.search.substr(1).split('&'); 
-       let params = {};
+       let param = {};
        arr.forEach(e => {
          let team = e.split('=');
         //  let key = team[0];
         //  let val = team[1];
         //  params[key] = val;
-        params[team[0]] = team[1];
+        param[team[0]] = team[1];
        });
-       return params;
+       return param;
    }
 
